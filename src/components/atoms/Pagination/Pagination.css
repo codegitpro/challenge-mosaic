@@ -1,0 +1,17 @@
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+}
+
+.pagination .item {
+    padding: 5px 10px;
+    margin: 5px;
+    text-decoration: none;
+    color: black;
+    display: block;
+    border: 1px solid black;
+    border-radius: 3px;
+}

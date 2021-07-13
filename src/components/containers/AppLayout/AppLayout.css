@@ -1,2 +1,6 @@
 .app-layout {
+    width: 80%;
+    margin: auto;
+    padding: 100px 50px;
+    box-sizing: border-box;
 }

@@ -15,9 +15,9 @@ const PATH = {
 };
 
 export const BackendServices = {
-    fetchNews: async (query, pageSize) => {
+    fetchNews: async (query, amount) => {
         try {
-            const search = new URLSearchParams({ q: query, page: pageSize });
+            const search = new URLSearchParams({ q: query, pageSize: amount });
             const apiEndpointWithQuery = `${PATH.FETCH_NEWS}?${search.toString()}`;
             const res = await BackendInstance.get(apiEndpointWithQuery);
             return res?.data;

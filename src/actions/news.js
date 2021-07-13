@@ -1,25 +1,26 @@
-import { Dispatch } from "redux";
-
 import { BackendServices } from "../services";
 
 export const NewsActionType = {
-    LOAD_DATA: "LOAD_NEWS_DATA",
+    IS_LOADING: "IS_LOADING",
+    SET_DATA: "SET_NEWS_DATA",
+    SET_ERROR: "SET_NEWS_ERROR",
 };
 
 export const NewsAction = {
-    fetchNewsData: (query, pageSize) => {
+    fetchNewsData: (query, amount) => {
         return async (dispatch) => {
             try {
-                dispatch({ type: NewsActionType.LOAD_DATA });
-                const newsData = await BackendServices.fetchNews(query, pageSize);
+                const res = await BackendServices.fetchNews(query, amount);
+                const newsData = res?.articles;
+                console.log("newsData", newsData);
                 if (newsData?.length) {
                     dispatch({
-                        type: NewsActionType.LOAD_DATA,
+                        type: NewsActionType.SET_DATA,
                         payload: { data: newsData },
                     });
                 }
             } catch (error) {
-                console.log("error", error.message);
+                console.error("fetchNewsData Error", error.message);
             }
         };
     },

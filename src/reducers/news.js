@@ -8,7 +8,8 @@ const initialState = {
 export const newsReducer = (state, action) => {
     const next = cloneDeep(state || initialState);
     switch (action.type) {
-        case NewsActionType.LOAD_DATA:
+        case NewsActionType.SET_DATA:
+            console.log("action.payload", action.payload);
             next.data = action.payload.data;
             break;
     }
