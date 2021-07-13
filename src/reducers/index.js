@@ -5,7 +5,7 @@ import { combineReducers } from "redux";
 import { newsReducer } from "./news";
 
 export const rootReducer = combineReducers({
-    newsReducer,
+    news: newsReducer,
 });
 
 export const useStore = () => {
